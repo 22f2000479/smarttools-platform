@@ -16,8 +16,6 @@ app/
 - data.py → dataset
 - models.py → schema definitions
 
-Each module has a clear responsibility.
-
 ---
 
 ## Features
@@ -39,7 +37,7 @@ Each module has a clear responsibility.
 
 ---
 
-## API Endpoints
+## API Endpoints---
 
 ### Health Check
 GET /health
