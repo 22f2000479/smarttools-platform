@@ -1,0 +1,6 @@
+This project follows structured backend development principles.
+
+Rules:
+- SDD branch must remain modular
+- Maintain separation of concerns
+- Keep API clean and testable

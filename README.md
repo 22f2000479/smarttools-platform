@@ -2,17 +2,31 @@
 
 SmartTools Platform is a FastAPI backend project built to explore AI tools and how APIs can be structured.
 
-This project demonstrates basic backend concepts like filtering, API design, and routing.
+It demonstrates both:
+- Vibe coding (simple implementation)
+- Spec Driven Development (structured architecture)
+
+---
+
+## Architecture (SDD)
+
+app/
+- main.py → API layer
+- reports.py → business logic
+- data.py → dataset
+- models.py → schema definitions
+
+Each module has a clear responsibility.
 
 ---
 
 ## Features
 
 - List AI tools
-- Filter by category
-- Filter by pricing
-- Basic API structure
-- Swagger UI support
+- Filter by category and pricing
+- Sorting and pagination
+- Clean API design
+- Layered architecture (SDD approach)
 
 ---
 
@@ -27,26 +41,22 @@ This project demonstrates basic backend concepts like filtering, API design, and
 
 ## API Endpoints
 
-### Health
+### Health Check
 GET /health
 
-### Tools
+### Tools API
 GET /tools
 
-Supports filtering using query params.
+Supports:
+- category filtering
+- pricing filtering
+- sorting
+- pagination
 
 ---
 
-## Run
+## Run Locally
 
-pip install fastapi uvicorn
-
+```bash
+pip install fastapi uvicorn httpx pytest
 python -m uvicorn app.main:app --reload
-
----
-
-## Branches
-
-- main
-- sdd_submission
-- vibe_coded_submission

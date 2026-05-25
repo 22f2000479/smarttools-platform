@@ -1,0 +1,5 @@
+{
+  "project": "smarttools-platform",
+  "framework": "fastapi",
+  "style": "sdd"
+}
