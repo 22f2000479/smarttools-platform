@@ -1,0 +1,1 @@
+"""SmartTools API built with FastAPI."""
