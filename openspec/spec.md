@@ -62,4 +62,4 @@ The system SHALL expose a `/tools` endpoint.
 
 ## Notes
 
-This is a lightweight OpenSpec representation created for educational purposes.
+This project was developed using AI-assisted workflows with tools such as Gemini/Cline and follows lightweight OpenSpec-inspired Spec Driven Development practices.
