@@ -13,8 +13,7 @@ license = { text = "MIT" }
 dependencies = [
     "fastapi>=0.110",
     "uvicorn[standard]>=0.27",
-    "pydantic>=2.5",
-    "jinja2"
+    "pydantic>=2.5"
 ]
 
 [project.optional-dependencies]
