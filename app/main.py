@@ -1,16 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from typing import Optional
-from .ai import suggest_tool
-from fastapi import Query
 from fastapi.responses import HTMLResponse
+from .ai import suggest_tool
 from .reports import get_tools
 from .models import Category, Pricing
+
 
 app = FastAPI(
     title="SmartTools API",
     description="API for discovering AI tools",
     version="1.0.0"
 )
+
 
 @app.get("/", response_class=HTMLResponse)
 def home():
@@ -21,23 +22,33 @@ def home():
             <style>
                 body {
                     font-family: Arial;
-                    background: #0f172a;
+                    background: linear-gradient(135deg, #0f172a, #1e293b);
                     color: white;
                     text-align: center;
-                    padding-top: 100px;
+                    margin: 0;
+                    padding: 60px;
                 }
+
                 .box {
-                    background: #1e293b;
+                    background: rgba(30, 41, 59, 0.9);
                     padding: 30px;
-                    border-radius: 12px;
+                    border-radius: 16px;
                     display: inline-block;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
                 }
+
                 a {
                     color: #38bdf8;
                     text-decoration: none;
+                    font-weight: bold;
+                }
+
+                a:hover {
+                    text-decoration: underline;
                 }
             </style>
         </head>
+
         <body>
             <div class="box">
                 <h1>🚀 SmartTools API</h1>
@@ -48,6 +59,7 @@ def home():
         </body>
     </html>
     """
+
 
 @app.get("/tools")
 def tools(
@@ -67,6 +79,7 @@ def tools(
         limit=limit
     )
 
+
 @app.get("/ai/suggest")
 def ai_suggest(query: str = Query(...)):
     return {
@@ -74,8 +87,7 @@ def ai_suggest(query: str = Query(...)):
         "suggested_tool": suggest_tool(query)
     }
 
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
-
