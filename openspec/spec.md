@@ -12,7 +12,7 @@ SmartTools Platform is an API service for discovering AI tools with support for 
 
 ---
 
-## Modules
+## Module
 
 - `app/main.py` → API layer
 - `app/reports.py` → business logic
