@@ -12,17 +12,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
-@app.get("/ai/suggest")
-def ai_suggest(query: str = Query(...)):
+@app.get("/")
+def root():
     return {
-        "query": query,
-        "suggested_tool": suggest_tool(query)
+        "message": "SmartTools API is running",
+        "docs": "/docs",
+        "health": "/health"
     }
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
 
 @app.get("/tools")
 def tools(
@@ -41,3 +37,16 @@ def tools(
         offset=offset,
         limit=limit
     )
+
+@app.get("/ai/suggest")
+def ai_suggest(query: str = Query(...)):
+    return {
+        "query": query,
+        "suggested_tool": suggest_tool(query)
+    }
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
