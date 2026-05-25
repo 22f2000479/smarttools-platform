@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from typing import Optional
+from .ai import suggest_tool
+from fastapi import Query
 
 from .reports import get_tools
 from .models import Category, Pricing
@@ -10,6 +12,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.get("/ai/suggest")
+def ai_suggest(query: str = Query(...)):
+    return {
+        "query": query,
+        "suggested_tool": suggest_tool(query)
+    }
 
 @app.get("/health")
 def health():
