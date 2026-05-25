@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main, sdd_submission, vibe_coded_submission ]
+    branches: [ sdd_submission ]
 
 jobs:
   test:
