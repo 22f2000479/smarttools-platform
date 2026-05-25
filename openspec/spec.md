@@ -1,38 +1,65 @@
-\# OpenSpec - SmartTools Platform
+# OpenSpec - SmartTools Platform
 
+## Purpose
 
+This project demonstrates structured backend development using FastAPI and Spec Driven Development (SDD) principles.
 
-\## System Overview
+---
 
-This project demonstrates structured backend development using FastAPI.
+## System Overview
 
+SmartTools Platform is an API service for discovering AI tools with support for filtering, sorting, and pagination.
 
+---
 
-\## Modules
+## Modules
 
-\- app/main.py → API layer
+- `app/main.py` → API layer
+- `app/reports.py` → business logic
+- `app/data.py` → dataset
+- `app/models.py` → schema definitions
 
-\- app/reports.py → business logic
+---
 
-\- app/data.py → dataset
+## Requirements
 
-\- app/models.py → schema definitions
+### Requirement: Health Endpoint
 
+The system SHALL expose a `/health` endpoint.
 
+#### Scenario: Health check request
 
-\## Design Principles
+- WHEN the client requests `/health`
+- THEN the API SHALL return status `"ok"`
 
-\- Separation of concerns
+---
 
-\- Stateless API design
+### Requirement: Tools Endpoint
 
-\- Filtering + pagination
+The system SHALL expose a `/tools` endpoint.
 
-\- Clean architecture (SDD style)
+#### Scenario: Fetch tools
 
+- WHEN the client requests `/tools`
+- THEN the API SHALL return available AI tools
 
+#### Scenario: Filter tools
 
-\## Note
+- WHEN category or pricing filters are provided
+- THEN the API SHALL return filtered results
 
-Lightweight OpenSpec representation for educational purposes.
+---
 
+## Design Principles
+
+- Separation of concerns
+- Stateless API design
+- Filtering and pagination
+- Lightweight modular architecture
+- SDD-style project organization
+
+---
+
+## Notes
+
+This is a lightweight OpenSpec representation created for educational purposes.
